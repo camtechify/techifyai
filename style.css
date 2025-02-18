@@ -1,0 +1,154 @@
+@font-face {
+  font-family: 'Sovereign';
+  src: url('/fonts/sovereign.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Sovereign', sans-serif;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-weight: 400;
+}
+
+.nav-items {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-items span {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.nav-items span:hover {
+  opacity: 1;
+}
+
+.highlight {
+  background: #fff;
+  color: #000;
+  padding: 0.5rem 1rem;
+}
+
+main {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.spline-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+spline-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.hero {
+  position: absolute;
+  bottom: 1rem; /* Reduced from 2rem to move text lower */
+  left: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Reduced gap between text and arrow */
+}
+
+.hero h1 {
+  font-size: 8vw;
+  font-weight: 100;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-align: center;
+  opacity: 0.9;
+  margin-bottom: -0.5rem; /* Added negative margin to bring arrow closer */
+}
+
+.scroll-arrow {
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nav-items {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .hero h1 {
+    font-size: 5.5vw;
+  }
+
+  .scroll-arrow {
+    font-size: 1.5rem;
+  }
+}
